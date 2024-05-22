@@ -28,14 +28,15 @@ try:
                  amountoflines = len(data)
             else:
                  amountoflines = 0
+                 Ntry = []
+                 totaalAmt = 0
 except FileNotFoundError:
     print("Er is geen bestand met de naam betaalkenmerken.txt")
     amountoflines = 0
+    Ntry = []
+    totaalAmt = 0
 
 entryAmount = entryAmount - amountoflines
-
-Ntry = []
-totaalAmt = 0
 
 for i in range(entryAmount):
     rekeninghouder = "Rekeninghouder " + str(i + 1)
