@@ -20,6 +20,20 @@ Bal = "<Bal><Tp><CdOrPrtry><Cd>PRCD</Cd></CdOrPrtry></Tp><Amt Ccy=\"EUR\">0.00</
 
 entryAmount = int(input("Hoeveel regels wil je in het CAMT bestand hebben? "))
 
+try:
+    with open("betaalkenmerken.txt", "r") as file:
+            lines = file.readlines()
+            data = [line for line in lines if line.strip()]
+            if data:
+                 amountoflines = len(data)
+            else:
+                 amountoflines = 0
+except FileNotFoundError:
+    print("Er is geen bestand met de naam betaalkenmerken.txt")
+    amountoflines = 0
+
+entryAmount = entryAmount - amountoflines
+
 Ntry = []
 totaalAmt = 0
 
